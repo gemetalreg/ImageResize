@@ -1,6 +1,7 @@
 const sharp = require("sharp");
 const dirTree = require("directory-tree");
 const fs = require("fs");
+const { info } = require("console");
 
 const tree = dirTree(".", {
   extensions: /\.jpg$/,
@@ -21,9 +22,13 @@ try {
   console.error(err);
 }
 
+const percentage = 50;
 for (const img of images) {
   sharp(img)
-    .resize(2550)
-    .toFile(`${folderName}/${img}`)
+    .metadata()
+    .then((info) => {
+      const width = Math.round((info.width * percentage) / 100);
+      return sharp(img).resize(width).toFile(`${folderName}/${img}`);
+    })
     .catch((err) => {});
 }
