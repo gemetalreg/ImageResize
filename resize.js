@@ -21,11 +21,9 @@ try {
   console.error(err);
 }
 
-let i = 1;
 for (const img of images) {
   sharp(img)
     .resize(2550)
     .toFile(`${folderName}/${img}`)
     .catch((err) => {});
-  i++;
 }
