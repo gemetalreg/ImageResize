@@ -4,7 +4,7 @@ const fs = require("fs");
 const { info } = require("console");
 
 const tree = dirTree(".", {
-  extensions: /\.jpg$/,
+  extensions: /\.(jpg|png|webp)$/,
 });
 
 const images = tree.children
