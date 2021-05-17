@@ -2,6 +2,7 @@ const sharp = require("sharp");
 const dirTree = require("directory-tree");
 const fs = require("fs");
 const { info } = require("console");
+const trash = require("trash");
 
 const tree = dirTree(".", {
   extensions: /\.(jpg|png|webp)$/,
@@ -21,6 +22,10 @@ try {
 } catch (err) {
   console.error(err);
 }
+
+(async () => {
+  await trash([`${folderName}/*.*`]);
+})();
 
 const percentage = 50;
 for (const img of images) {
