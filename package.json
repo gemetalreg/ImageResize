@@ -1,18 +1,20 @@
 {
-  "name": "les17",
+  "name": "kislovodsk",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "resize": "node resize.js"
+    "optim": "node index.js"
   },
-  "keywords": [],
+  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "directory-tree": "^2.2.9",
-    "sharp": "^0.28.1",
-    "trash": "^7.1.1"
+    "imagemin": "^8.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "sharp": "^0.28.3",
+    "trash": "^7.2.0"
   }
 }
